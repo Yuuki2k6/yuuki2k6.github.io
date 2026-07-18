@@ -42,6 +42,36 @@
     });
   });
 
+  /* Marquee edge-reveal: hovering a thumbnail clipped by the viewport edge
+     slides the track just enough to show it fully. The shift lives on the
+     `translate` property, which composes with the animation's `transform`. */
+  var marquee = document.querySelector(".marquee");
+  if (marquee) {
+    var track = marquee.querySelector(".marquee-track");
+    var edgeOffset = 0;
+    var EDGE_PAD = 12;
+    marquee.addEventListener("pointerover", function (e) {
+      var item = e.target.closest(".m-item");
+      if (!item) return;
+      var mr = marquee.getBoundingClientRect();
+      var ir = item.getBoundingClientRect();
+      var delta = 0;
+      if (ir.left < mr.left) {
+        delta = mr.left + EDGE_PAD - ir.left;
+      } else if (ir.right > mr.right) {
+        delta = mr.right - EDGE_PAD - ir.right;
+      }
+      if (delta) {
+        edgeOffset += delta;
+        track.style.translate = edgeOffset + "px 0";
+      }
+    });
+    marquee.addEventListener("pointerleave", function () {
+      edgeOffset = 0;
+      track.style.translate = "0px 0";
+    });
+  }
+
   /* Scroll reveal */
   var targets = document.querySelectorAll(".reveal");
   if (!("IntersectionObserver" in window) || reduced) {

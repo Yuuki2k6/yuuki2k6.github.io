@@ -314,6 +314,7 @@ ul {
   display: flex;
   width: max-content;
   animation: marquee 45s linear infinite;
+  transition: translate 0.4s cubic-bezier(0.25, 0.8, 0.3, 1);
 }
 
 /* hovering (or keyboard focus inside) a thumbnail stops the reel */
@@ -395,7 +396,7 @@ ul {
    ========================================================================== */
 
 .longform {
-  padding: 90px 16px 0;
+  padding: 90px 16px 60px;
 }
 
 .longform .section-title {
@@ -937,6 +938,7 @@ body.loaded .icon-ps {
 
   .marquee-track {
     animation: none;
+    transition: none;
   }
 }
 
@@ -1018,6 +1020,7 @@ body:not(.js) .reveal {
 
   .longform {
     padding-top: 165px;
+    padding-bottom: 110px;
   }
 
   .card-grid {
