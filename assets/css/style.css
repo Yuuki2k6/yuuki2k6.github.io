@@ -61,7 +61,7 @@ ul {
 }
 
 :focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--navy);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -374,6 +374,7 @@ ul {
   padding: 34px 18px 24px;
 }
 
+.work-card h2,
 .work-card h3 {
   font-family: var(--sans);
   font-size: clamp(26px, 2.5vw, 36px);
@@ -735,6 +736,7 @@ ul {
 
 .case-body figure img {
   width: 100%;
+  height: auto;
   border-radius: 16px;
 }
 
@@ -857,6 +859,7 @@ body.loaded .icon-ps {
   .hero .hero-sub,
   .hero .btn,
   .hero-icon,
+  .pill,
   .reveal {
     opacity: 1 !important;
     transform: none !important;
@@ -944,6 +947,10 @@ body:not(.js) .reveal {
 
   .longform {
     padding-top: 90px;
+  }
+
+  .works-grid {
+    padding-top: 40px;
   }
 
   .footer {

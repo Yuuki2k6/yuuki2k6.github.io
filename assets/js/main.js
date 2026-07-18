@@ -4,6 +4,14 @@
 
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* Reduced motion: stop the marquee video loops too (CSS can't pause video) */
+  if (reduced) {
+    Array.prototype.forEach.call(document.querySelectorAll("video"), function (v) {
+      v.removeAttribute("autoplay");
+      v.pause();
+    });
+  }
+
   /* Letter-by-letter reveal for the hero subline (progressive enhancement) */
   var sub = document.querySelector("[data-letters]");
   if (sub && !reduced) {
