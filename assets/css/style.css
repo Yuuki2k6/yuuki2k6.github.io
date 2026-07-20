@@ -310,6 +310,7 @@ ul {
 .marquee {
   overflow: hidden;
   padding: 6px 0;
+  min-height: calc(min(118vw, 460px) + 12px);
 }
 
 .marquee-track {
@@ -986,6 +987,11 @@ body.loaded .icon-ps {
     animation: none;
     transition: none;
   }
+
+  /* with the animation off, the reel becomes a manual scroller */
+  .marquee {
+    overflow-x: auto;
+  }
 }
 
 body:not(.js) .hero .arc-text,
@@ -1057,6 +1063,10 @@ body:not(.js) .reveal {
 
   .shortform {
     padding-top: 8px;
+  }
+
+  .marquee {
+    min-height: calc(clamp(280px, 25.2vw, 363px) + 12px);
   }
 
   .marquee img,
